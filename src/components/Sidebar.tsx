@@ -4,6 +4,7 @@ import {
   AlertTriangle, Brain, CalendarDays, Megaphone, LayoutGrid, ChevronRight
 } from "lucide-react";
 import { useState } from "react";
+import { TalentiaLogo } from "./TalentiaLogo";
 
 export const SECTIONS = [
   { id: "que-es", label: "Qué es Claude", icon: Sparkles },
@@ -27,7 +28,6 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile trigger */}
       <button
         onClick={() => setOpen(!open)}
         className="lg:hidden fixed top-4 left-4 z-50 glass-strong rounded-xl px-3 py-2 text-sm flex items-center gap-2"
@@ -49,11 +49,10 @@ export function Sidebar() {
                 C
               </div>
               <div className="leading-tight">
-                <div className="font-semibold text-sm">Claude Guide</div>
-                <div className="text-[11px] text-muted-foreground">Edición 2026</div>
+                <div className="font-semibold text-sm">Guía Claude</div>
+                <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Edición 2026</div>
               </div>
             </div>
-            {/* Progress */}
             <div className="mt-4">
               <div className="flex justify-between text-[10px] text-muted-foreground mb-1.5 uppercase tracking-wider">
                 <span>Progreso</span>
@@ -65,7 +64,6 @@ export function Sidebar() {
             </div>
           </div>
 
-          {/* Nav */}
           <nav className="flex-1 overflow-y-auto p-3 scrollbar-thin">
             {SECTIONS.map((s, i) => {
               const Icon = s.icon;
@@ -95,8 +93,11 @@ export function Sidebar() {
             })}
           </nav>
 
-          <div className="p-4 border-t border-white/5 text-[11px] text-muted-foreground">
-            <div className="flex items-center gap-2">
+          {/* Footer — Talentia branding */}
+          <div className="p-4 border-t border-white/5">
+            <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-2">Una formación de</div>
+            <TalentiaLogo className="h-5" />
+            <div className="mt-3 flex items-center gap-2 text-[11px] text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-success pulse-dot" />
               <span>Sesión activa</span>
             </div>
