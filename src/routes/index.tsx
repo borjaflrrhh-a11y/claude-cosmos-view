@@ -1,26 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Sidebar } from "@/components/Sidebar";
+import { Hero } from "@/components/Hero";
+import {
+  QueEs, Modelos, Planes, Ecosistema, Configuracion,
+  Prompts, Errores, Mentalidad, Roadmap, MarketingFlow, CheatSheet
+} from "@/components/sections";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Guía Definitiva de Claude — Edición 2026" },
+      { name: "description", content: "Plataforma visual de aprendizaje sobre Claude AI: modelos, projects, artefactos, prompts y un roadmap de 30 días." },
+      { property: "og:title", content: "Guía Definitiva de Claude — Edición 2026" },
+      { property: "og:description", content: "Una experiencia premium para aprender Claude desde cero." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Sidebar />
+      <main className="lg:pl-80">
+        <Hero />
+        <QueEs />
+        <Modelos />
+        <Planes />
+        <Ecosistema />
+        <Configuracion />
+        <Prompts />
+        <Errores />
+        <Mentalidad />
+        <Roadmap />
+        <MarketingFlow />
+        <CheatSheet />
+      </main>
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
