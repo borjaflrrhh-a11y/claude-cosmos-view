@@ -37,51 +37,129 @@
   --color-brand-2: var(--brand-2);
   --color-success: var(--success);
   --color-warning: var(--warning);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", "Inter", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Manrope", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-:root, .dark {
+/* ===========================================
+   TEMA CLARO TALENTIA (por defecto)
+   Manual: Magnetic Blue #05308C + Black #000000
+   =========================================== */
+:root {
   --radius: 0.875rem;
-  /* Deep premium dark */
-  --background: oklch(0.16 0.02 265);
-  --foreground: oklch(0.97 0.005 250);
-  --surface: oklch(0.20 0.022 265);
-  --surface-elevated: oklch(0.235 0.025 265);
-  --card: oklch(0.205 0.022 265);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.215 0.025 265);
-  --popover-foreground: oklch(0.97 0.005 250);
-  --primary: oklch(0.97 0.005 250);
-  --primary-foreground: oklch(0.16 0.02 265);
-  --secondary: oklch(0.26 0.028 265);
-  --secondary-foreground: oklch(0.95 0.005 250);
-  --muted: oklch(0.24 0.025 265);
-  --muted-foreground: oklch(0.68 0.02 260);
-  --accent: oklch(0.28 0.04 265);
-  --accent-foreground: oklch(0.97 0.005 250);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.72 0.16 35);
-  /* Brand: Claude warm orange + electric blue accent */
-  --brand: oklch(0.74 0.17 38);
-  --brand-foreground: oklch(0.16 0.02 265);
-  --brand-2: oklch(0.7 0.18 255);
-  --success: oklch(0.74 0.17 155);
-  --warning: oklch(0.82 0.15 85);
 
-  --gradient-hero: radial-gradient(1200px 600px at 20% 0%, oklch(0.74 0.17 38 / 0.18), transparent 60%),
-                   radial-gradient(900px 500px at 90% 20%, oklch(0.7 0.18 255 / 0.15), transparent 60%),
-                   linear-gradient(180deg, oklch(0.16 0.02 265), oklch(0.14 0.02 265));
-  --gradient-brand: linear-gradient(135deg, oklch(0.78 0.17 45), oklch(0.7 0.18 25));
-  --gradient-cool: linear-gradient(135deg, oklch(0.72 0.16 255), oklch(0.65 0.2 290));
-  --gradient-text: linear-gradient(180deg, oklch(0.99 0 0), oklch(0.72 0.02 260));
-  --shadow-glow: 0 20px 60px -20px oklch(0.74 0.17 38 / 0.45);
-  --shadow-soft: 0 10px 40px -15px oklch(0 0 0 / 0.5);
-  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 30px 60px -30px oklch(0 0 0 / 0.5);
+  /* Fondos: blanco roto y grises muy suaves */
+  --background: #FFFFFF;
+  --foreground: #0A0A0F;
+  --surface: #F7F8FB;
+  --surface-elevated: #FFFFFF;
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0F;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0F;
+
+  /* Primary = negro Talentia (texto y CTAs secundarios) */
+  --primary: #0A0A0F;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary = grises corporativos */
+  --secondary: #F1F2F6;
+  --secondary-foreground: #1A1A22;
+
+  --muted: #F4F5F8;
+  --muted-foreground: #5F6373;
+
+  --accent: #EAF0FB;
+  --accent-foreground: #05308C;
+
+  --destructive: #B91C1C;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E5E7EE;
+  --input: #E5E7EE;
+  --ring: #05308C;
+
+  /* === MARCA TALENTIA === */
+  --brand: #05308C;              /* Magnetic Blue oficial */
+  --brand-foreground: #FFFFFF;
+  --brand-2: #021E5A;            /* Azul oscuro derivado, para profundidad */
+
+  /* Estados — tonos sobrios alineados con paleta corporativa */
+  --success: #0F7A4F;
+  --warning: #B45309;
+
+  /* Gradientes Talentia (sobrios, sin colorines fuera de marca) */
+  --gradient-hero:
+    radial-gradient(1200px 600px at 20% 0%, rgba(5, 48, 140, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(5, 48, 140, 0.05), transparent 60%),
+    linear-gradient(180deg, #FFFFFF, #F7F8FB);
+  --gradient-brand: linear-gradient(135deg, #05308C, #021E5A);
+  --gradient-cool: linear-gradient(135deg, #1A4FB8, #05308C);
+  --gradient-text: linear-gradient(180deg, #0A0A0F, #4A4A55);
+
+  /* Sombras: más suaves y limpias para tema claro */
+  --shadow-glow: 0 20px 60px -20px rgba(5, 48, 140, 0.35);
+  --shadow-soft: 0 10px 40px -15px rgba(10, 10, 15, 0.12);
+  --shadow-card:
+    0 1px 0 0 rgba(255, 255, 255, 0.6) inset,
+    0 8px 24px -12px rgba(10, 10, 15, 0.08),
+    0 1px 2px rgba(10, 10, 15, 0.04);
+}
+
+/* ===========================================
+   TEMA OSCURO (opcional, mantenido por si lo activas)
+   Mismo lenguaje pero invertido — coherente con Talentia
+   =========================================== */
+.dark {
+  --background: #06060A;
+  --foreground: #F4F5F8;
+  --surface: #0F0F15;
+  --surface-elevated: #14141C;
+  --card: #0F0F15;
+  --card-foreground: #F4F5F8;
+  --popover: #14141C;
+  --popover-foreground: #F4F5F8;
+
+  --primary: #FFFFFF;
+  --primary-foreground: #0A0A0F;
+
+  --secondary: #1A1A22;
+  --secondary-foreground: #E5E7EE;
+
+  --muted: #15151D;
+  --muted-foreground: #8A8E9E;
+
+  --accent: #0E1A38;
+  --accent-foreground: #6B92E0;
+
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #1A4FB8;
+
+  --brand: #1A4FB8;          /* Azul más luminoso para fondo oscuro */
+  --brand-foreground: #FFFFFF;
+  --brand-2: #05308C;
+
+  --success: #16A34A;
+  --warning: #D97706;
+
+  --gradient-hero:
+    radial-gradient(1200px 600px at 20% 0%, rgba(26, 79, 184, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(5, 48, 140, 0.15), transparent 60%),
+    linear-gradient(180deg, #06060A, #0A0A12);
+  --gradient-brand: linear-gradient(135deg, #1A4FB8, #05308C);
+  --gradient-cool: linear-gradient(135deg, #2563EB, #1A4FB8);
+  --gradient-text: linear-gradient(180deg, #FFFFFF, #B8BCCC);
+
+  --shadow-glow: 0 20px 60px -20px rgba(26, 79, 184, 0.45);
+  --shadow-soft: 0 10px 40px -15px rgba(0, 0, 0, 0.5);
+  --shadow-card:
+    0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 60px -30px rgba(0, 0, 0, 0.5);
 }
 
 @layer base {
@@ -94,20 +172,33 @@
     font-feature-settings: "cv11", "ss01", "ss03";
     -webkit-font-smoothing: antialiased;
   }
-  ::selection { background: oklch(0.74 0.17 38 / 0.35); color: var(--foreground); }
+  ::selection {
+    background: rgba(5, 48, 140, 0.18);
+    color: var(--foreground);
+  }
 }
 
 @layer utilities {
+  /* Glass adaptado a tema claro: sutil, no oscuro */
   .glass {
-    background: linear-gradient(180deg, oklch(1 0 0 / 0.04), oklch(1 0 0 / 0.02));
+    background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(14px);
-    border: 1px solid oklch(1 0 0 / 0.08);
+    border: 1px solid var(--border);
   }
   .glass-strong {
-    background: linear-gradient(180deg, oklch(1 0 0 / 0.06), oklch(1 0 0 / 0.03));
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
-    border: 1px solid oklch(1 0 0 / 0.1);
+    border: 1px solid var(--border);
   }
+  .dark .glass {
+    background: rgba(20, 20, 28, 0.55);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .dark .glass-strong {
+    background: rgba(20, 20, 28, 0.75);
+    border-color: rgba(255, 255, 255, 0.10);
+  }
+
   .text-gradient {
     background: var(--gradient-text);
     -webkit-background-clip: text;
@@ -125,30 +216,58 @@
   .bg-cool { background: var(--gradient-cool); }
   .shadow-glow { box-shadow: var(--shadow-glow); }
   .shadow-card { box-shadow: var(--shadow-card); }
+
+  /* Grid background — más sutil para tema claro */
   .grid-bg {
     background-image:
-      linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(5, 48, 140, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(5, 48, 140, 0.05) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
   }
+  .dark .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  }
+
   .noise {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
-    opacity: 0.04;
+    opacity: 0.025;
   }
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+  }
   .reveal.in { opacity: 1; transform: none; }
-  .ring-brand { box-shadow: 0 0 0 1px oklch(0.74 0.17 38 / 0.5), 0 0 60px -10px oklch(0.74 0.17 38 / 0.4); }
+
+  .ring-brand {
+    box-shadow:
+      0 0 0 1px rgba(5, 48, 140, 0.4),
+      0 0 60px -10px rgba(5, 48, 140, 0.3);
+  }
+
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
   .float { animation: float 6s ease-in-out infinite; }
+
   @keyframes pulse-dot { 0%,100%{opacity:.4} 50%{opacity:1} }
   .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
   @keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
   .shimmer {
-    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.08), transparent);
+    background: linear-gradient(90deg, transparent, rgba(5, 48, 140, 0.10), transparent);
     background-size: 200% 100%;
     animation: shimmer 3s linear infinite;
   }
+
   .scrollbar-thin::-webkit-scrollbar { width: 6px; }
-  .scrollbar-thin::-webkit-scrollbar-thumb { background: oklch(1 0 0 / 0.1); border-radius: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(5, 48, 140, 0.15);
+    border-radius: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(5, 48, 140, 0.30);
+  }
 }
