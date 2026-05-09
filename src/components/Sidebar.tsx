@@ -28,13 +28,14 @@ export function Sidebar() {
 
   return (
     <>
+      {/* Toggle móvil */}
       <button
         onClick={() => setOpen(!open)}
-        className="lg:hidden fixed top-4 left-4 z-50 glass-strong rounded-xl px-3 py-2 text-sm flex items-center gap-2"
-        aria-label="Toggle navigation"
+        className="lg:hidden fixed top-4 left-4 z-50 glass-strong rounded-xl px-3 py-2 text-sm flex items-center gap-2 shadow-card"
+        aria-label="Abrir navegación"
       >
-        <LayoutGrid className="w-4 h-4" />
-        <span className="font-medium">Guía</span>
+        <LayoutGrid className="w-4 h-4 text-brand" />
+        <span className="font-semibold">Guía</span>
       </button>
 
       <aside
@@ -42,28 +43,38 @@ export function Sidebar() {
           ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
       >
         <div className="h-full m-3 rounded-2xl glass-strong shadow-card flex flex-col overflow-hidden">
-          {/* Brand */}
-          <div className="p-5 border-b border-white/5">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-brand grid place-items-center text-brand-foreground font-bold text-sm shadow-glow">
-                C
-              </div>
-              <div className="leading-tight">
-                <div className="font-semibold text-sm">Guía Claude</div>
-                <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Edición 2026</div>
-              </div>
+          {/* Cabecera con marca Talentia como protagonista */}
+          <div className="p-5 border-b border-border">
+            <div className="flex items-center justify-between gap-2">
+              <TalentiaLogo className="h-6" />
+              <span className="text-[10px] font-semibold text-brand uppercase tracking-wider">
+                2026
+              </span>
             </div>
-            <div className="mt-4">
+            <div className="mt-3">
+              <div className="text-sm font-semibold text-foreground leading-tight">
+                Guía Definitiva
+              </div>
+              <div className="text-xs text-muted-foreground">de Claude</div>
+            </div>
+
+            <div className="mt-5">
               <div className="flex justify-between text-[10px] text-muted-foreground mb-1.5 uppercase tracking-wider">
                 <span>Progreso</span>
-                <span>{idx + 1}/{SECTIONS.length}</span>
+                <span className="font-semibold text-brand">
+                  {idx + 1}/{SECTIONS.length}
+                </span>
               </div>
-              <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                <div className="h-full bg-brand transition-all duration-500" style={{ width: `${progress}%` }} />
+              <div className="h-1 bg-secondary rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-brand transition-all duration-500"
+                  style={{ width: `${progress}%` }}
+                />
               </div>
             </div>
           </div>
 
+          {/* Lista de secciones */}
           <nav className="flex-1 overflow-y-auto p-3 scrollbar-thin">
             {SECTIONS.map((s, i) => {
               const Icon = s.icon;
@@ -74,15 +85,23 @@ export function Sidebar() {
                   href={`#${s.id}`}
                   onClick={() => setOpen(false)}
                   className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all relative
-                    ${isActive
-                      ? "bg-white/[0.06] text-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/[0.03]"}`}
+                    ${
+                      isActive
+                        ? "bg-accent text-accent-foreground"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
                 >
                   {isActive && (
                     <span className="absolute left-0 top-2 bottom-2 w-[3px] bg-brand rounded-r-full" />
                   )}
-                  <span className={`grid place-items-center w-7 h-7 rounded-lg text-[11px] font-mono
-                    ${isActive ? "bg-brand text-brand-foreground" : "bg-white/5 text-muted-foreground"}`}>
+                  <span
+                    className={`grid place-items-center w-7 h-7 rounded-lg text-[11px] font-mono font-semibold
+                      ${
+                        isActive
+                          ? "bg-brand text-brand-foreground"
+                          : "bg-secondary text-muted-foreground"
+                      }`}
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <Icon className="w-4 h-4 opacity-70" />
@@ -93,20 +112,26 @@ export function Sidebar() {
             })}
           </nav>
 
-          {/* Footer — Talentia branding */}
-          <div className="p-4 border-t border-white/5">
-            <div className="text-[10px] text-muted-foreground uppercase tracking-wider mb-2">Una formación de</div>
-            <TalentiaLogo className="h-5" />
-            <div className="mt-3 flex items-center gap-2 text-[11px] text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-success pulse-dot" />
-              <span>Sesión activa</span>
+          {/* Pie con estado */}
+          <div className="p-4 border-t border-border bg-surface/50">
+            <div className="flex items-center justify-between text-[11px]">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <span className="w-1.5 h-1.5 rounded-full bg-success pulse-dot" />
+                <span className="font-medium">Sesión activa</span>
+              </div>
+              <span className="text-muted-foreground">
+                © {new Date().getFullYear()}
+              </span>
             </div>
           </div>
         </div>
       </aside>
 
       {open && (
-        <div className="lg:hidden fixed inset-0 bg-black/60 z-30" onClick={() => setOpen(false)} />
+        <div
+          className="lg:hidden fixed inset-0 bg-foreground/40 backdrop-blur-sm z-30"
+          onClick={() => setOpen(false)}
+        />
       )}
     </>
   );
