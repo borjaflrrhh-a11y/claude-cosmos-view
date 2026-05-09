@@ -1,14 +1,14 @@
 import { Section, Card, Pill } from "./primitives";
 import { useState } from "react";
 import {
-  Brain, Zap, Code2, Check, X,
+  Brain, Zap, Check, X,
   MessageCircle, FolderKanban, Wand2, Cpu, Globe, Terminal,
   Shield, Sparkles, Target, Layers, Lightbulb, AlertTriangle,
-  Compass, Rocket, TrendingUp, Search, FileText, Image as ImageIcon, Video,
-  Megaphone, Mail, BarChart3, Clock, ChevronRight, ArrowRight, FlaskConical,
+  Compass, Search, FileText,
+  BarChart3, Clock, ChevronRight, ArrowRight, FlaskConical,
   Crown, Gauge, Trophy, Palette, Plug, BookOpen, Workflow, MousePointerClick,
   Send, Database, Mic, ShieldCheck, Calendar, Briefcase, Users, Hash,
-  PenTool, Eye, GitBranch, Quote
+  PenTool, Eye, GitBranch, Quote, Settings2
 } from "lucide-react";
 
 /* ================================================================
